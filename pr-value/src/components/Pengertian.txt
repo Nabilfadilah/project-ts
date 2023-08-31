@@ -1,0 +1,57 @@
+1. Import dan Setup Selenium WebDriver:
+
+Kode pertama mengimpor modul-modul yang diperlukan dari Selenium WebDriver, yaitu Builder, By, WebDriver, dan until.
+Selanjutnya, ada impor modul Chrome dan assert.
+Pendefinisian Test Suite:
+
+2. describe digunakan untuk mendefinisikan suite pengujian. Di dalamnya, Anda memberi label pada suite pengujian dengan [INTEGRATION] <PortalOfflineMedia />.
+Pendefinisian Variabel dan Setup Awal:
+
+Anda mendefinisikan variabel driver yang akan digunakan untuk mengontrol WebDriver.
+Dalam blok beforeEach, Anda membuat instance WebDriver menggunakan Chrome Browser. Opsi tambahan juga diset untuk mengontrol perilaku WebDriver, seperti detachDriver(false) untuk mencegah driver dari detach setelah sesi selesai.
+Dalam blok afterEach, WebDriver akan di-quit setelah setiap pengujian selesai.
+
+3. Pendefinisian Fungsi Login:
+Fungsi login digunakan untuk mengotomatisasi proses login ke halaman dengan menggunakan WebDriver.
+WebDriver akan membuka halaman http://localhost:3000/users/sign_in.
+Setelah memasuki halaman login, elemen-elemen seperti email, password, dan tombol login akan dicari dan diinteraksi menggunakan WebDriver.
+Anda juga menambahkan penundaan (sleep) sebelum mencari elemen email untuk memastikan halaman sudah terload sepenuhnya.
+Setelah login sukses, WebDriver akan menunggu hingga URL berubah dan sesuai dengan harapan.
+Pengujian Membuka Halaman Portal Offline Media:
+
+4. Anda melakukan login terlebih dahulu dengan memanggil fungsi login().
+Kemudian, WebDriver akan membuka halaman http://localhost:3000/pr-value/portal-offline-media.
+Assertion digunakan untuk memastikan bahwa URL halaman saat ini sesuai dengan yang diharapkan.
+
+Pengujian Mengklik Tombol Add New dan Back:
+
+Anda melakukan login terlebih dahulu dengan memanggil fungsi login().
+WebDriver membuka halaman http://localhost:3000/pr-value/portal-offline-media.
+Kemudian, WebDriver mencari elemen tombol "Add New" dan mengkliknya.
+WebDriver menunggu hingga URL berubah sesuai dengan harapan.
+Assertion memastikan URL telah berubah sesuai dengan yang diharapkan.
+Setelah itu, WebDriver mencari dan mengklik tombol "Back".
+WebDriver menunggu hingga URL kembali berubah dan assertion memastikan URL telah kembali sesuai dengan harapan.
+Penutup Test Suite:
+
+Semua pengujian dalam suite ini telah didefinisikan.
+Kode ini mengotomatisasi langkah-langkah yang akan dijalankan oleh WebDriver saat menguji halaman web. Setiap pengujian melakukan serangkaian tindakan pada halaman dan memeriksa apakah perilaku dan hasilnya sesuai dengan yang diharapkan. Jika ada perbedaan antara perilaku aktual dan yang diharapkan, pengujian akan gagal dan memberikan laporan error.
+
+-------------------------------------------------------------------
+Pengertian - Pengertian
+
+Close()- Digunakan untuk menutup browser atau halaman yang sedang menjadi fokus.
+
+Quit()- Digunakan untuk mematikan instance driver web atau menghancurkan instance driver web (Tutup semua jendela).
+
+Dispose()- Saya tidak mengetahui metode ini.
+
+describe : mengelompokkan tes menjadi suatu grup tertentu.
+it / test : mendefinisikan tes
+expect(..) / toBe(..) : elakukan pengecekan. Lebih lanjut mengenai metode-metode yang dapat Anda gunakan untuk mengecek suatu nilai dapat Anda lihat
+
+fireEvent : fireEvent.change adalah fungsi yang digunakan untuk mensimulasikan perubahan pada elemen input atau form.
+
+await : 
+
+it.skip : 
